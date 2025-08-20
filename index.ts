@@ -1,10 +1,10 @@
 export * from "./KanbanBoard";
-export * from "./board-column";
-export * from "./column-action";
-export * from "./task-card";
-export * from "./new-section-dialog";
-export { default as NewTaskDialog } from "./new-task-dialog";
+export * from "./components/board-column";
+export * from "./components/column-action";
+export * from "./components/task-card";
+export * from "./components/new-section-dialog";
+export { default as NewTaskDialog } from "../new-task-dialog";
 export { default as AiTaskModal } from "./AiTaskModal";
-export * as KanbanMocks from "./mocks";
-export * as KanbanTypes from "./types";
-export * from "./store";
+export * as KanbanMocks from "./utils/mocks";
+export * as KanbanTypes from "./utils/types";
+export * from "./utils/store";

@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 
-import { useTaskStore } from "./store";
+import { useTaskStore } from "../utils/store";
 
 export default function NewSectionDialog() {
 	const addCol = useTaskStore((state) => state.addCol);

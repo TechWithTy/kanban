@@ -11,8 +11,8 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import type { KanbanTask } from "./types";
-import { useTaskStore } from "./store";
+import type { KanbanTask } from "./utils/types";
+import { useTaskStore } from "./utils/store";
 
 interface AiTaskModalProps {
 	task: KanbanTask | null;

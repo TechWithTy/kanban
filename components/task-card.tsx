@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import type { KanbanTask } from "./types";
+import type { KanbanTask } from "../utils/types";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { cva } from "class-variance-authority";
@@ -32,11 +32,11 @@ import {
 	DropdownMenuItem,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { mockGeneratedLeads, mockLeadListData, mockTeamMembers } from "./mocks";
-import { useTaskStore } from "./store";
-import AiTaskModal from "./AiTaskModal";
+import { mockGeneratedLeads, mockLeadListData, mockTeamMembers } from "../mocks";
+import { useTaskStore } from "../utils/store";
+import AiTaskModal from "../AiTaskModal";
 import { Confetti } from "@/components/magicui/confetti";
-import EditTaskDialog from "./EditTaskDialog";
+import EditTaskDialog from "../EditTaskDialog";
 
 const priorityBadgeVariant = {
 	low: "outline",

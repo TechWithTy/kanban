@@ -2,9 +2,9 @@
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
-import { hasDraggableData } from "./utils";
-import { useTaskStore } from "./store";
-import type { KanbanColumn, KanbanTask, Status } from "./types";
+import { hasDraggableData } from "./utils/utils";
+import { useTaskStore } from "./utils/store";
+import type { KanbanColumn, KanbanTask, Status } from "./utils/types";
 import {
 	type Announcements,
 	DndContext,
@@ -18,9 +18,9 @@ import {
 	useSensors,
 } from "@dnd-kit/core";
 import { SortableContext, arrayMove } from "@dnd-kit/sortable";
-import { BoardColumn, BoardContainer } from "./board-column";
-import NewSectionDialog from "./new-section-dialog";
-import { TaskCard } from "./task-card";
+import NewSectionDialog from "./components/new-section-dialog";
+import { TaskCard } from "./components/task-card";
+import { BoardContainer, BoardColumn } from "./components/board-column";
 
 export type ColumnId = KanbanColumn["id"];
 
