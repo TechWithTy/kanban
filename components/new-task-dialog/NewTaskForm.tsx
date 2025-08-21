@@ -16,7 +16,7 @@ interface NewTaskFormProps {
 export function NewTaskForm({ setFormValid }: NewTaskFormProps) {
 	const addTask = useTaskStore((state) => state.addTask);
 	const [assignType, setAssignType] = useState<"lead" | "leadList" | "">("");
-	const [selectedLeadId, setSelectedLeadId] = useState<number | null>(null);
+	const [selectedLeadId, setSelectedLeadId] = useState<string | null>(null);
 	const [selectedLeadListId, setSelectedLeadListId] = useState<number | null>(
 		null,
 	);
