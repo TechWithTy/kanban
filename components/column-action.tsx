@@ -20,7 +20,7 @@ import {
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useToast } from "@/components/ui/use-toast";
-import { useTaskStore } from "./store";
+import { useTaskStore } from "../utils/store";
 import { Input } from "@/components/ui/input";
 
 export function ColumnActions({ title, id }: { title: string; id: string }) {

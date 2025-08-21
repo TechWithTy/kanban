@@ -9,13 +9,13 @@ import {
 	DialogTitle,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import type { KanbanTask } from "./types";
-import { useTaskStore } from "./store";
-import { AssignmentTypeDropdown } from "./new-task-dialog/AssignmentTypeDropdown";
-import { LeadDropdown } from "./new-task-dialog/LeadDropdown";
-import { LeadListDropdown } from "./new-task-dialog/LeadListDropdown";
-import { TeamMemberDropdown } from "./new-task-dialog/TeamMemberDropdown";
-import { TaskFormFields } from "./new-task-dialog/TaskFormFields";
+import type { KanbanTask } from "../utils/types";
+import { useTaskStore } from "../utils/store";
+import { AssignmentTypeDropdown } from "@/components/kanban/new-task-dialog/AssignmentTypeDropdown";
+import { LeadDropdown } from "@/components/kanban/new-task-dialog/LeadDropdown";
+import { LeadListDropdown } from "@/components/kanban/new-task-dialog/LeadListDropdown";
+import { TeamMemberDropdown } from "@/components/kanban/new-task-dialog/TeamMemberDropdown";
+import { TaskFormFields } from "@/components/kanban/new-task-dialog/TaskFormFields";
 
 interface EditTaskDialogProps {
 	task: KanbanTask;
