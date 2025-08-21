@@ -178,7 +178,14 @@ export function TaskCard({ task, isOverlay }: TaskCardProps) {
         onDelete={() => removeTask(String(task.id))}
         aiControls={
           task.mcpWorkflow ? (
-            <AiHeaderControls task={task} aiState={aiState} aiBadge={aiBadge} onOpen={() => setAiOpen(true)} />
+            <AiHeaderControls
+              task={task}
+              aiState={aiState}
+              aiBadge={aiBadge}
+              onOpen={() => setAiOpen(true)}
+              onCancel={() => cancelAi(task.id)}
+              onRetry={() => retryAi(task.id)}
+            />
           ) : null
         }
       />

@@ -9,7 +9,8 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Info } from "lucide-react";
-import type { KanbanTask } from "../utils/types";
+import { RefreshCw, Square } from "lucide-react";
+import type { KanbanTask } from "../../../utils/types";
 import { formatHMS } from "../utils/time";
 
 export type AiBadge = { label: string; variant: "default" | "secondary" | "destructive" | "outline" };
@@ -19,11 +20,15 @@ export function AiHeaderControls({
   aiState,
   aiBadge,
   onOpen,
+  onCancel,
+  onRetry,
 }: {
   task: KanbanTask;
   aiState: string | undefined;
   aiBadge: AiBadge;
   onOpen: () => void;
+  onCancel?: () => void;
+  onRetry?: () => void;
 }) {
   const elapsedSeconds = (() => {
     if (!task.aiStartedAt) return 0;
@@ -41,6 +46,7 @@ export function AiHeaderControls({
               <Button
                 variant="secondary"
                 className="mx-0 px-2 py-1 font-bold text-xs"
+                type="button"
                 onClick={onOpen}
               >
                 <span role="img" aria-label="Play">▶️</span> Ai
@@ -65,7 +71,7 @@ export function AiHeaderControls({
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger asChild>
-              <Button variant="ghost" className="mx-0 h-8 w-8 p-0" aria-label="AI run info">
+              <Button variant="ghost" className="mx-0 h-8 w-8 p-0" aria-label="AI run info" type="button">
                 <Info className="h-4 w-4" />
               </Button>
             </TooltipTrigger>
@@ -89,9 +95,33 @@ export function AiHeaderControls({
           </Tooltip>
         </TooltipProvider>
       )}
+      {/* Header action buttons for quick access while running/failed */}
+      {aiState === "running" && onCancel && (
+        <Button
+          variant="ghost"
+          className="mx-0 h-8 px-2 text-destructive"
+          onClick={onCancel}
+          type="button"
+        >
+          <Square className="mr-1 h-3 w-3" />
+          Stop
+        </Button>
+      )}
+      {aiState === "failed" && onRetry && (
+        <Button
+          variant="outline"
+          className="mx-0 h-8 px-2"
+          onClick={onRetry}
+          type="button"
+        >
+          <RefreshCw className="mr-1 h-3 w-3" />
+          Retry
+        </Button>
+      )}
       <Badge variant={aiBadge.variant as any} className="font-semibold">
         {aiBadge.label}
       </Badge>
     </div>
   );
 }
+
